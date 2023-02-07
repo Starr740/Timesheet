@@ -7,21 +7,21 @@
           <table class="table table-striped">
             <thead>
               <tr>
-                <th>ID</th>
+                <!-- <th>ID</th> -->
+                <th>Date</th>
                 <th>Task</th>
                 <th>Description</th>
                 <th>Time Spent</th>
-                <th>Date</th>
                 <th>&nbsp;</th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="record in records" :key="record.id">
-                <td>{{ record.id }}</td>
+                <!-- <td>{{ record.id }}</td> -->
+                <td> {{ record.date }}</td>
                 <td>{{ record.task }}</td>
                 <td>{{ record.description }}</td>
                 <td>{{ record.hours }} hrs {{ record.minutes }} mins</td>
-                <td> {{ record.date }}</td>
                 <td class="text-right">
                   <a href="#" @click.prevent="updateFoodRecord(record)" v-b-modal.modal-1>Edit</a> -
                   <a href="#" @click.prevent="deleteFoodRecord(record.id)">Delete</a>
@@ -31,13 +31,23 @@
           </table>
           <br>
          <br>
-            <b-button v-b-modal.modal-1>Fill Timesheet</b-button>
+            <b-button v-b-modal.modal-1>New</b-button>
+            <br><br>
+            <!-- <FormulateTable @submit="showAlert">
+            <FormulateInput type="submit" name="Submit this table!"/>
+           </FormulateTable> -->
+            <!-- <div>
+                <b-btn type="send" variant="success">Submit</b-btn>
+              </div> -->
             <b-modal id="modal-1" title="Add Project" hide-footer>
   <!-- Content -->
             <form @submit.prevent="createFoodRecord">
               <!-- <b-form-group label="Member Id">
                 <b-form-input type="number" v-model="model.teamId"></b-form-input>
               </b-form-group> -->
+              <b-form-group label="Date" style="color: #28c69f">
+                <b-form-input v-model="model.date"  type="date" class="form-control"></b-form-input>
+              </b-form-group>
               <b-form-group label="Task">
                 <b-form-input type="text" v-model="model.task"></b-form-input>
               </b-form-group>
@@ -49,9 +59,6 @@
               </b-form-group>
               <b-form-group label="Minutes">
                 <b-form-input v-model="model.minutes"  type="number" class="form-control"></b-form-input>
-              </b-form-group>
-              <b-form-group label="Date" style="color: #28c69f">
-                <b-form-input v-model="model.date"  type="date" class="form-control"></b-form-input>
               </b-form-group>
               <!-- <b-form-group label="Total" v-model="model.total">
                 <div>{{ total }}</div>
@@ -69,7 +76,7 @@
   
   <script>
    let currDate = new Date().toLocaleDateString('en-GB');
-    // import api from '@/HoursApiService';
+    import api from '@/TimesheetApiService';
     export default {
       data() {
         return {
