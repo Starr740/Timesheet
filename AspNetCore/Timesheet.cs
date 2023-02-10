@@ -13,7 +13,7 @@ namespace AspNetCore
     public int Minutes { get; set; }
     public string? Status { get; set; }
 
-    public Employee Employees { get; set; }
-    public Project Projects { get; set; }
+    // public Employee Employees { get; set; }
+    // public Project Projects { get; set; }
   }
 }
