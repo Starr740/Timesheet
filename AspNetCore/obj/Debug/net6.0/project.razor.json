@@ -18372,6 +18372,12 @@
     "CSharpLanguageVersion": 1000
   },
   "RootNamespace": "aspnetcore",
-  "Documents": [],
+  "Documents": [
+    {
+      "FilePath": "c:\\Users\\Esther\\Desktop\\e-Timesheet\\AspNetCore\\Views\\Coordinator\\Put_edit_tasks.cshtml",
+      "TargetPath": "Views\\Coordinator\\Put_edit_tasks.cshtml",
+      "FileKind": "mvc"
+    }
+  ],
   "SerializationFormat": "0.3"
 }
