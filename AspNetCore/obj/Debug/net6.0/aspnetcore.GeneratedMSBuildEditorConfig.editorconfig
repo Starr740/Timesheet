@@ -8,13 +8,13 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = aspnetcore
 build_property.RootNamespace = aspnetcore
-build_property.ProjectDir = c:\Users\Esther\Desktop\e-Timesheet\AspNetCore\
+build_property.ProjectDir = C:\Users\Esther\Desktop\e-Timesheet\aspnetcore\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = c:\Users\Esther\Desktop\e-Timesheet\AspNetCore
+build_property.MSBuildProjectDirectory = C:\Users\Esther\Desktop\e-Timesheet\aspnetcore
 build_property._RazorSourceGeneratorDebug = 
 
-[c:/Users/Esther/Desktop/e-Timesheet/AspNetCore/Views/Coordinator/Put_edit_tasks.cshtml]
+[C:/Users/Esther/Desktop/e-Timesheet/aspnetcore/Views/Coordinator/Put_edit_tasks.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29vcmRpbmF0b3JcUHV0X2VkaXRfdGFza3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
