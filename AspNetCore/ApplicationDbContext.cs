@@ -7,5 +7,6 @@ namespace AspNetCore {
     { }
 
     public DbSet<Timesheet> Timesheets { get; set; }
+    public DbSet<Employee> Employees { get; set; }
   }
 }
