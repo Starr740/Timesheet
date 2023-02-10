@@ -33,6 +33,17 @@
          <br>
             <b-button v-b-modal.modal-1>New</b-button>
             <br><br>
+            
+            <!-- using inline arrow function -->
+            <button @click="(status) => warn('Timesheet cannot be submitted yet.', status)">
+              Submit
+            </button>
+            <!-- <button @click="status = !active">Submit</button>
+
+<h1 v-if="active">Timesheet submitted successfully!</h1>
+<h1 v-else>Finish your timesheet😢</h1> -->
+
+            <!-- <button @click="reloadPage">Submit</button> -->
             <!-- <FormulateTable @submit="showAlert">
             <FormulateInput type="submit" name="Submit this table!"/>
            </FormulateTable> -->
@@ -101,6 +112,15 @@
         this.getAll()
       },
       methods: {
+  warn(message, status) {
+    // now we have access to the native event
+    if (status) {
+      status.preventDefault()
+    }
+    alert(message)
+  },
+        reloadPage() {
+      window.location.reload();},
         async getAll() {
           this.loading = true
   

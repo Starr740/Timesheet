@@ -24,5 +24,8 @@ export default {
     },
     update(id, data) {
       return this.execute('put', `/${id}`, data)
+    },
+    delete(id) {
+      return this.execute('delete', `/${id}`)
     }
   }

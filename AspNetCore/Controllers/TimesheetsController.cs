@@ -24,10 +24,22 @@ namespace AspNetCore.Controllers
     }
 
     // GET api/foodrecords/5
-    [HttpGet("{id}")]
+    [HttpGet("task/{id}")]
     public async Task<ActionResult<Timesheet>> Get(int id)
     {
       return await _dbContext.Timesheets.FindAsync(id);
+    }
+
+       // public ActionResult Gettask()
+// {
+//    return Content("string task");
+// }
+
+     // GET api/foodrecords/5
+    [HttpGet("s/{task}")]
+    public async Task<ActionResult<Timesheet>> Get_tasks(string task)
+    {
+      return await _dbContext.Timesheets.FindAsync(task);
     }
 
     // POST api/foodrecords
@@ -40,8 +52,8 @@ namespace AspNetCore.Controllers
     }
 
     // PUT api/foodrecords/5
-    [HttpPut("{id}")]
-    public async Task<ActionResult> Put(int id, Timesheet model)
+    [HttpPut("editTask/{id}")]
+    public async Task<ActionResult> Put_edit_tasks(int id, Timesheet model)
     {
       var exists = await _dbContext.Timesheets.AnyAsync(f => f.Id == id);
       if (!exists)
@@ -58,7 +70,7 @@ namespace AspNetCore.Controllers
     }
 
     // DELETE api/foodrecords/5
-    [HttpDelete("{id}")]
+    [HttpDelete("remove/{id}")]
     public async Task<ActionResult> Delete(int id)
     {
       var entity = await _dbContext.Timesheets.FindAsync(id);
