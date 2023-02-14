@@ -2,7 +2,7 @@ using System;
 
 namespace AspNetCore
 {
-  public class Supervisor_Table
+  public class Supervisee
   {
     public int Id { get; set; }
     public int Employee_Id { get; set; }
