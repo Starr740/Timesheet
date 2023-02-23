@@ -1490,24 +1490,32 @@
     ]
   },
   "packageFolders": {
-    "/home/ianthec2002/.nuget/packages/": {}
+    "C:\\Users\\Esther\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/ianthec2002/Desktop/GHII/Timesheet/AspNetCore/aspnetcore.csproj",
+      "projectUniqueName": "C:\\Users\\Esther\\Desktop\\Timesheet-1\\aspnetcore\\aspnetcore.csproj",
       "projectName": "aspnetcore",
-      "projectPath": "/home/ianthec2002/Desktop/GHII/Timesheet/AspNetCore/aspnetcore.csproj",
-      "packagesPath": "/home/ianthec2002/.nuget/packages/",
-      "outputPath": "/home/ianthec2002/Desktop/GHII/Timesheet/AspNetCore/obj/",
+      "projectPath": "C:\\Users\\Esther\\Desktop\\Timesheet-1\\aspnetcore\\aspnetcore.csproj",
+      "packagesPath": "C:\\Users\\Esther\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Esther\\Desktop\\Timesheet-1\\aspnetcore\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "/home/ianthec2002/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Esther\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1572,7 +1580,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.405/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

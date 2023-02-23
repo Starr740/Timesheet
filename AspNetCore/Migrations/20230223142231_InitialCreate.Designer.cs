@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace aspnetcore.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230210130657_InitialCreate")]
+    [Migration("20230223142231_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -26,9 +26,11 @@ namespace aspnetcore.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("First_Name")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Surname")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -48,11 +50,13 @@ namespace aspnetcore.Migrations
                     b.Property<DateOnly>("End")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Funder")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Funder")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
-                    b.Property<int>("Project_Name")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.Property<DateOnly>("Start")
                         .HasColumnType("TEXT");
@@ -92,6 +96,46 @@ namespace aspnetcore.Migrations
                     b.ToTable("ProjectSupervisors");
                 });
 
+            modelBuilder.Entity("AspNetCore.Super", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("SuperviseeId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Supervisor_TableId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SuperviseeId");
+
+                    b.HasIndex("Supervisor_TableId");
+
+                    b.ToTable("Supers");
+                });
+
+            modelBuilder.Entity("AspNetCore.Supervisee", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Employee_Id")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("EmployeesId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EmployeesId");
+
+                    b.ToTable("Supervisees");
+                });
+
             modelBuilder.Entity("AspNetCore.Supervisor_Table", b =>
                 {
                     b.Property<int>("Id")
@@ -120,9 +164,6 @@ namespace aspnetcore.Migrations
                     b.Property<DateOnly>("Date")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Employee_Id")
-                        .HasColumnType("INTEGER");
-
                     b.Property<int>("EmployeesId")
                         .HasColumnType("INTEGER");
 
@@ -141,6 +182,12 @@ namespace aspnetcore.Migrations
                     b.Property<string>("Status")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("SupervisorId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("SupervisorsId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Task")
                         .HasColumnType("TEXT");
 
@@ -149,6 +196,8 @@ namespace aspnetcore.Migrations
                     b.HasIndex("EmployeesId");
 
                     b.HasIndex("ProjectsId");
+
+                    b.HasIndex("SupervisorsId");
 
                     b.ToTable("Timesheets");
                 });
@@ -170,6 +219,36 @@ namespace aspnetcore.Migrations
                     b.Navigation("Projects");
 
                     b.Navigation("Supervisors");
+                });
+
+            modelBuilder.Entity("AspNetCore.Super", b =>
+                {
+                    b.HasOne("AspNetCore.Supervisee", "Supervisee")
+                        .WithMany()
+                        .HasForeignKey("SuperviseeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AspNetCore.Supervisor_Table", "Supervisor_Table")
+                        .WithMany()
+                        .HasForeignKey("Supervisor_TableId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Supervisee");
+
+                    b.Navigation("Supervisor_Table");
+                });
+
+            modelBuilder.Entity("AspNetCore.Supervisee", b =>
+                {
+                    b.HasOne("AspNetCore.Employee", "Employees")
+                        .WithMany()
+                        .HasForeignKey("EmployeesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Employees");
                 });
 
             modelBuilder.Entity("AspNetCore.Supervisor_Table", b =>
@@ -197,9 +276,17 @@ namespace aspnetcore.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("AspNetCore.Supervisor_Table", "Supervisors")
+                        .WithMany()
+                        .HasForeignKey("SupervisorsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Employees");
 
                     b.Navigation("Projects");
+
+                    b.Navigation("Supervisors");
                 });
 #pragma warning restore 612, 618
         }

@@ -24,7 +24,7 @@ namespace AspNetCore.Controllers
     }
 
     // GET api/projects/5
-    [HttpGet("task/{id}")]
+    [HttpGet("{id}")]
     public async Task<ActionResult<Project>> Get(int id)
     {
       return await _dbContext.Projects.FindAsync(id);
@@ -40,7 +40,7 @@ namespace AspNetCore.Controllers
     }
 
     // PUT api/projects/5
-    [HttpPut("editTask/{id}")]
+    [HttpPut("{id}")]
     public async Task<ActionResult> Put_edit_tasks(int id, Project model)
     {
       var exists = await _dbContext.Projects.AnyAsync(f => f.Id == id);
@@ -58,7 +58,7 @@ namespace AspNetCore.Controllers
     }
 
     // DELETE api/projects/5
-    [HttpDelete("remove/{id}")]
+    [HttpDelete("{id}")]
     public async Task<ActionResult> Delete(int id)
     {
       var entity = await _dbContext.Projects.FindAsync(id);

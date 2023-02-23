@@ -11,7 +11,7 @@ namespace AspNetCore.Controllers
   {
     private readonly ApplicationDbContext _dbContext;
 
-    public SuperviseeController(ApplicationDbContext dbContext)
+    public SuperController(ApplicationDbContext dbContext)
     {
       _dbContext = dbContext;
     }
